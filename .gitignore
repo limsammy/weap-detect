@@ -14,3 +14,7 @@ training
 *.tif
 ssd_mobilenet_v1_coco_2017_11_17.tar.gz
 outputs.zip
+models
+faster_rcnn
+env
+ssd_mobilenet

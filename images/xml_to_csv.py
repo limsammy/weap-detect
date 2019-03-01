@@ -35,7 +35,7 @@ def main():
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
         xml_df.to_csv("data/{}_labels.csv".format(directory), index=None)
-        print('Successfully converted xml to csv for, ' directory)
+        print('Successfully converted xml to csv for, ' + directory)
 
 
 main()
