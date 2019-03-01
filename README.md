@@ -17,8 +17,8 @@
 
 ## Getting Started
   - Uncompress train and test images and place images in correct directories with the setup file `python setup.py`
-  - Run `python images/xml_to_csv.py`
-  - Create tfrecords `python images/generate_tfrecord.py --csv_input=data/train_labels.csv --output_path=data/train.record`
+  - Run `python images/xml_to_csv.py` to generate csv files
+  - Generate tfrecords `python images/generate_tfrecord.py --csv_input=data/train_labels.csv --output_path=data/train.record`
   - Create training directory `mkdir training`
   - Pull SSD Mobilenet model
   - Make sure the ckpt file in the mobilenet dir is named `model.cpkt`
