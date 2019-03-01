@@ -8,6 +8,8 @@ TRAIN_TAR_URL = 'https://storage.googleapis.com/weap-detect-bucket/datasets/trai
 TEST_TAR_URL = 'https://storage.googleapis.com/weap-detect-bucket/datasets/test.tar.gz'
 TRAIN_PATH = 'images/train'
 TEST_PATH = 'images/test'
+TRAIN_TAR_PATH = 'images/train/train.tar.gz'
+TEST_TAR_PATH = 'images/test/test.tar.gz'
 
 def create_dir(path):
 	print("[INFO] checking to see if {} exists...".format(path))
@@ -34,17 +36,18 @@ def dl_tarball(url):
 			url))
 		print(e)
 
-def unpack_tarball(ball_path):
+def unpack_tarball(ball_path, output_dir):
 	tf = tarfile.open(ball_path, "r:gz")
-	tf.extractall()
+	print("[INFO] opening tar at path {}...".format(ball_path))
+	print("[INFO] found file! beginning to extract...")
+	tf.extractall(path=output_dir)
+	print("[INFO] successfully extracted all files in tarball!")
 
 def run():
 	print("[INFO] beginning directory setup...")
 	try:
 		create_dir(TRAIN_PATH)
 		create_dir(TEST_PATH)
-
-		print("[INFO] successfully created/verified directories are present!")
 	except Exception as e:
 		print("[ERROR] failed to create directories...")
 		print(e)
@@ -53,14 +56,18 @@ def run():
 	try:
 		dl_tarball(TRAIN_TAR_URL)
 		dl_tarball(TEST_TAR_URL)
-
-		print("[INFO] successfully downloaded tarballs!")
 	except Exception as e:
 		print("[ERROR] failed to download tarballs...")
+		print(e)
 
 	print("[INFO] attempting to unpack tarballs...")
 	try:
-		unpack_tarball()
+		unpack_tarball(TRAIN_TAR_PATH, TRAIN_PATH)
+		unpack_tarball(TEST_TAR_PATH, TEST_PATH)
+	except Exception as e:
+		print("[ERROR] failed to unpack tarballs...")
+		print(e)
 
+	print("[DONE] dataset done downloading. Move to next step in README and begin generating config files.")
 
 run()
