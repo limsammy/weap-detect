@@ -6,13 +6,11 @@ images/test
 images/validation
 outputs/faster_rcnn
 outputs/ssd_mobile
-training
 *.jpg
 *.jpeg
 *.png
 *.tiff
 *.tif
-ssd_mobilenet_v1_coco_2017_11_17.tar.gz
 outputs.zip
 models
 faster_rcnn
