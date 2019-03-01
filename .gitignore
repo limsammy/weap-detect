@@ -16,3 +16,4 @@ models
 faster_rcnn
 env
 ssd_mobilenet
+*/*.tar.gz
