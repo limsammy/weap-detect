@@ -5,6 +5,7 @@
   - Clone repo locally `git clone git@github.com:limsammy/weap-detect.git`
   - Navigate to project directory `cd weap-detect`
   - Create python virtualenv `virtualenv env`
+  - Activate environment `source env/bin/activate`
   - Install python dependencies from requirements.txt file `pip install -r requirements.txt`
 
 
